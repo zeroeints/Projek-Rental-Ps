@@ -1,0 +1,59 @@
+todo list 
+1.membuat menu interface (done)
+2.terdapat kelas utama yaitu konsol (sudah)
+3.terdapt 5 sub class ps (sudah)
+4.terdpat perhitungan total(progres)
+5.harga perjam(done)
+6.terdapat menu fariasi yaitu
+	1.menambah stik
+	2.pilihan pengambilan konsol cod/ditempat
+7.login (sudah)
+8.role user admin dan member (sudah)
+9,tampilan admin (sudah)
+10.crud admin
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Berikut adalah menu rental PlayStation:
+
+1. Rental PlayStation 2
+- Harga sewa per hari: Rp. 50.000
+- Harga sewa per minggu: Rp. 300.000
+- Harga sewa per bulan: Rp. 900.000
+
+2. Rental PlayStation 3
+- Harga sewa per hari: Rp. 75.000
+- Harga sewa per minggu: Rp. 450.000
+- Harga sewa per bulan: Rp. 1.350.000
+
+3. Rental PlayStation 4
+- Harga sewa per hari: Rp. 100.000
+- Harga sewa per minggu: Rp. 600.000
+- Harga sewa per bulan: Rp. 1.800.000
+
+4. Rental PlayStation 5
+- Harga sewa per hari: Rp. 150.000
+- Harga sewa per minggu: Rp. 900.000
+- Harga sewa per bulan: Rp. 2.700.000
+
+5. Paket Rental PS2 & PS3
+- Harga sewa per hari: Rp. 100.000
+- Harga sewa per minggu: Rp. 550.000
+- Harga sewa per bulan: Rp. 1.650.000
+
+6. Paket Rental PS4 & PS5
+- Harga sewa per hari: Rp. 200.000
+- Harga sewa per minggu: Rp. 1.200.000
+- Harga sewa per bulan: Rp. 3.600.000
+
+7. Tambahan Aksesori
+- DUALSHOCK 2 Controller: Rp. 25.000/hari
+- DUALSHOCK 3 Controller: Rp. 50.000/hari
+- DUALSHOCK 4 Controller: Rp. 50.000/hari
+- DUALSHOCK 5 Controller: Rp. 75.000/hari
+- VR Headset: Rp. 250.000/hari
+- Game FIFA 23: Rp. 25.000/hari
+- Game Grand Theft Auto V: Rp. 50.000/hari
+
+Catatan: Harga sewa bisa berubah tergantung pada lokasi dan permintaan. Silakan menghubungi kami untuk informasi lebih lanjut.
