@@ -37,17 +37,7 @@ Berikut adalah menu rental PlayStation:
 - Harga sewa per minggu: Rp. 900.000
 - Harga sewa per bulan: Rp. 2.700.000
 
-5. Paket Rental PS2 & PS3
-- Harga sewa per hari: Rp. 100.000
-- Harga sewa per minggu: Rp. 550.000
-- Harga sewa per bulan: Rp. 1.650.000
-
-6. Paket Rental PS4 & PS5
-- Harga sewa per hari: Rp. 200.000
-- Harga sewa per minggu: Rp. 1.200.000
-- Harga sewa per bulan: Rp. 3.600.000
-
-7. Tambahan Aksesori
+5. Tambahan Aksesori
 - DUALSHOCK 2 Controller: Rp. 25.000/hari
 - DUALSHOCK 3 Controller: Rp. 50.000/hari
 - DUALSHOCK 4 Controller: Rp. 50.000/hari

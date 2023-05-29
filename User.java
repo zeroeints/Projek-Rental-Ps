@@ -114,12 +114,10 @@ public class User {
         System.out.println("| 1. | Rental PlayStation 2   |");
         System.out.println("| 2. | Rental PlayStation 3   |");
         System.out.println("| 3. | Rental PlayStation 4   |");
-        System.out.println("| 4. | Rental PlayStation 5   |");
-        System.out.println("| 5. | Paket Rental PS2 & PS3 |");
-        System.out.println("| 6. | Paket Rental PS4 & PS5 |");
-        System.out.println("| 7. | Tambahan Aksesoris     |");
-        System.out.println("| 8. | Registrasi             |");
-        System.out.println("| 9. |         BAYAR          |");
+        System.out.println("| 4. | Rental PlayStation 5   |");;
+        System.out.println("| 5. | Tambahan Aksesoris     |");
+        System.out.println("| 6. | Registrasi             |");
+        System.out.println("| 7. |         BAYAR          |");
         System.out.println("===============================");
         
 
