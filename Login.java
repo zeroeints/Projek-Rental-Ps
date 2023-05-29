@@ -5,6 +5,8 @@ public class Login {
     Scanner scan = new Scanner(System.in);
     private boolean isLanjut = true;
     private boolean cek = false;
+    ArrayList<String> temp = new ArrayList<String>();
+   
 
     public void Regristrasi() throws IOException {
         System.out.println("=================================");
@@ -62,6 +64,10 @@ public class Login {
                 if (username.equals(NamaMember)) {
                     if (pasword.equals(PasswordMember)) {
                         role = stringToken.nextToken();
+                        this.temp.add(0, username);
+                        this.temp.add(1, stringToken.nextToken());
+                        this.temp.add(2, stringToken.nextToken());
+
                         this.isLanjut = false;
                         break;
                     }
@@ -96,5 +102,12 @@ public class Login {
 
     public boolean retUrn() {
         return this.cek;
+    }
+
+    public String gettemp(int no) {
+        String coba = temp.get(no);
+
+        return coba;
+
     }
 }

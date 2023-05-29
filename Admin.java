@@ -1,8 +1,9 @@
 import java.io.*;
 import java.util.*;
 
-public class Admin {
+public class Admin extends User {
     Scanner scan = new Scanner(System.in);
+    Tampilan tampilan = new Tampilan();
 
     public void display() {
         System.out.println("        RENTAL PS BAROKAH      ");
@@ -26,14 +27,83 @@ public class Admin {
 
     public void pilihanUser(int userInput) throws IOException {
         switch (userInput) {
-            // case 1 -> tampilkanData();
+            case 1 -> tampilan.menuUser();
             case 2 -> tampilkanData();
-            // case 3 -> user.showps4();
-            // case 4 -> ;
+            case 3 -> ubahData();
+            case 4 -> hapusData();
+        }
+    }
 
-            // case 10 -> konsol.tambah(user.harga);
+    public void ubahData() throws IOException {
+
+        BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));
+        String oldText = "";
+        String line = reader.readLine();
+        int currentLineNumber = 1;
+        tampilkanData();
+       
+        System.out.print("Masukkan nomor baris yang ingin diubah: ");
+        int nomorBaris = scan.nextInt();
+
+        scan.nextLine();
+        System.out.print("Masukkan kata yang ingin di ubah: ");
+        String kata = scan.nextLine();
+        System.out.print("\nMasukkan kata baru: ");
+        String kataBaru = scan.nextLine();
+
+        while (line != null) {
+            if (currentLineNumber == nomorBaris) {
+                if (line.contains(kata)) {
+                    line = line.replace(kata, kataBaru);
+                }
+            }
+            oldText += line + "\r\n";
+            line = reader.readLine();
+            currentLineNumber++;
+        }
+        reader.close();
+
+        FileWriter writer = new FileWriter("Data.txt");
+        writer.write(oldText);
+        writer.close();
+
+    }
+
+    public void hapusData() throws IOException {
+
+        tampilkanData();
+        System.out.println("");
+        System.out.print("Masukkan nomor filem yang ingin di hapus : ");
+        int number = scan.nextInt();
+
+        BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));
+        String dataLama = "";
+
+        String line = reader.readLine();
+        int pembanding = 1;
+        Boolean isLanjut = getYesorNo("apakah anda yakin akan menghapus data");
+
+        if (isLanjut) {
+
+            while (line != null) {
+                if (pembanding != number) {
+                    dataLama += line + "\r\n";
+                }
+                line = reader.readLine();
+                pembanding++;
+            }
+            reader.close();
+
+            if (number > pembanding) {
+                System.out.println("Baris yang diinginkan tidak ditemukan di file");
+            } else {
+                FileWriter writer = new FileWriter("Data.txt");
+                writer.write(dataLama);
+                writer.close();
+            }
 
         }
+
     }
 
     public static void tampilkanData() throws IOException {

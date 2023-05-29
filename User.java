@@ -8,6 +8,7 @@ public class User {
     Ps4 ps4 = new Ps4();
     Ps5 ps5 = new Ps5();
     Login login = new Login();
+    Tampilan tampilan = new Tampilan();
     Konsol konsol = new Konsol();
     Scanner scan = new Scanner(System.in);
     ArrayList<String> data = new ArrayList<String>();
@@ -21,8 +22,16 @@ public class User {
 
     public void tulisData(String nama, String alamat, String notlp) throws IOException {
         BufferedWriter memberWriter = new BufferedWriter(new FileWriter("Data.txt", true));
-
-        memberWriter.write(nama + "_" + alamat + "_" + notlp + "_" + printTotal() + "_" + konsol.setTotalhari());
+        
+        memberWriter.write(nama + "_" + alamat + "_" + notlp + "_Rp." + printTotal() + "_" + konsol.setTotalhari()+" Hari");
+        memberWriter.newLine();
+        memberWriter.close();
+        System.out.println("Terimakasih telah menyewa di tempat kami )");
+    }
+    public void tulisData() throws IOException {
+        BufferedWriter memberWriter = new BufferedWriter(new FileWriter("Data.txt", true));
+        
+        memberWriter.write(tampilan.login.gettemp(0) + "_" + tampilan.login.gettemp(1) + "_" + tampilan.login.gettemp(2) + "_Rp." + printTotal() + "_" + konsol.setTotalhari()+" Hari");
         memberWriter.newLine();
         memberWriter.close();
         System.out.println("Terimakasih telah menyewa di tempat kami )");
@@ -35,7 +44,6 @@ public class User {
             tempTotsl += totall;
         }
 
-        System.out.println("Total belanjaan anda : Rp." + tempTotsl);
         return tempTotsl;
 
     }
@@ -113,6 +121,7 @@ public class User {
         System.out.println("| 8. | Registrasi             |");
         System.out.println("| 9. |         BAYAR          |");
         System.out.println("===============================");
+        
 
     }
 

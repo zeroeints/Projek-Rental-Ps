@@ -3,12 +3,9 @@ import java.io.IOException;
 
 public class Ps2 extends Konsol {
     
-    // ArrayList <Ps2> ps2 = new ArrayList<Ps2>();
     int hari = 50000;
     int minggu = 300000;
     int bulan = 900000;
-    
-
     
     public void display () throws IOException{
             System.out.println("==========================================");
@@ -20,7 +17,5 @@ public class Ps2 extends Konsol {
         return total;
      
     }
-    
-
     
 }

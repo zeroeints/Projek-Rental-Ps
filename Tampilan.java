@@ -2,31 +2,40 @@ import java.io.*;
 import java.util.*;
 
 public class Tampilan {
+    
     static Scanner scan = new Scanner(System.in);
     static Admin admin = new Admin();
     static Login login = new Login();
     static User user = new User();
     static boolean isExist = true;
+    static boolean cek = true;
     static int userInput;
 
     public static void main(String[] args) throws IOException {
         clearScreen();
-        boolean isLanjut = true;
+        boolean isLanjut = false;
 
         isLanjut = getYesorNo("Apakah Anda memiliki akun member ? ");
 
-        while (isLanjut) {
-            isLanjut = false;
+        // while (isLanjut) {
+        // isLanjut = false;
+        // login.loginUser();
+        // }
+        if (isLanjut) {
             login.loginUser();
+        } else {
+            menuUser();
         }
 
         if (login.retUrn()) {
             menuAdmin();
         } else {
+            cek = false;
             menuUser();
         }
 
     }
+
     public static void pilihanUser(int userInput) throws IOException {
         switch (userInput) {
             case 1 -> user.showps2();
@@ -38,8 +47,8 @@ public class Tampilan {
             // case 10 -> konsol.tambah(user.harga);
 
         }
+
     }
-    
 
     public static void menuAdmin() throws IOException {
         boolean menuAdmin = true;
@@ -60,7 +69,7 @@ public class Tampilan {
             User.diplay();
             chose();
             pilihanUser(userInput);
-            
+
             menuUser = getYesorNo("Apakah Anda ingin kembali ke menu utama ");
         }
     }
@@ -73,7 +82,7 @@ public class Tampilan {
     }
 
     public static void formUser() throws IOException {
-        
+
         System.out.print("Masukan nama : ");
         String nama = scan.next();
         System.out.print("Masukan alamat :");
@@ -84,16 +93,19 @@ public class Tampilan {
         // user.setdata(nama, alamat, notlp);
         user.tulisData(nama, alamat, notlp);
 
-      
-
     }
 
     public static void bayar() throws IOException {
-        
+        System.out.println("Total belanjaan anda : Rp." + user.printTotal() );
         if (user.printTotal() != 0) {
             boolean isbayar = getYesorNo("Apakah ingin melanjutkan pembayaran ");
             if (isbayar) {
-                formUser();
+                if (cek) {
+                    formUser();
+                } else {
+                    user.tulisData();
+
+                }
 
             }
         } else {
@@ -129,5 +141,5 @@ public class Tampilan {
         return pilihanUser.equalsIgnoreCase("y");
 
     }
-   
+
 }
