@@ -6,8 +6,6 @@ public class Konsol {
     int temp;
     int userInput;
     private int totalHari=0;
-
-    
     ArrayList<User> data = new ArrayList<User>();
     ArrayList<Integer> total = new ArrayList<>();
     

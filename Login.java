@@ -13,16 +13,17 @@ public class Login {
         System.out.println("|           Regristrasi         |");
         System.out.println("=================================");
         System.out.print("| User name :");
-        String namaMember = scan.next();
+        String namaMember = scan.nextLine();
         System.out.println("=================================");
         System.out.print("| Password :");
         String PasswordMember = scan.next();
+        scan.nextLine();
         System.out.println("=================================");
         System.out.print("| Alamat :");
-        String AlamatMember = scan.next();
+        String AlamatMember = scan.nextLine();
         System.out.println("=================================");
         System.out.print("| NO tlp :");
-        String TlpMember = scan.next();
+        String TlpMember = scan.nextLine();
         System.out.println("=================================");
 
         tulis(PasswordMember, namaMember, AlamatMember, TlpMember);
@@ -38,10 +39,11 @@ public class Login {
             System.out.println("|             login             |");
             System.out.println("=================================");
             System.out.print("| Nama Member : ");
-            String NamaMember = scan.next();
+            String NamaMember = scan.nextLine();
             System.out.println("=================================");
             System.out.print("| Password : ");
             String PasswordMember = scan.next();
+            scan.nextLine();
             System.out.println("=================================");
             cekUser(NamaMember, PasswordMember);
         }
@@ -91,8 +93,7 @@ public class Login {
 
     }
 
-    private void tulis(String PasswordMember, String namaMember, String AlamatMember, String TlpMember)
-            throws IOException {
+    private void tulis(String PasswordMember, String namaMember, String AlamatMember, String TlpMember) throws IOException {
         BufferedWriter memberWriter = new BufferedWriter(new FileWriter("dataMember.txt", true));
 
         memberWriter.write(PasswordMember + "_" + namaMember + "_member_" + AlamatMember + "_" + TlpMember);

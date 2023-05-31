@@ -1,7 +1,1 @@
-bagas_jljljl_0891_RP.2850000_31 Hari
-fila_jl_081283_Rp.3600000_37 Hari
-par_jalan_0828_Rp.2850000_31 Hari
-null_null_null_Rp.50000_1 Hari
-fila_jl_081_Rp.1350000_30 Hari
-fila_jl_081_Rp.2700000_30 Hari
-fila_jl_081_Rp.3600000_37 Hari
+

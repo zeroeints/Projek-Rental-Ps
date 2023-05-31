@@ -4,9 +4,6 @@ public class Ps3 extends Konsol {
     int minggu = 450000;
     int bulan = 1350000;
     
-
-
-
     public void display (){
         System.out.println("==========================================");
         System.out.println("           Rental PlayStation 3           ");

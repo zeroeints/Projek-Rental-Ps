@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Tampilan {
-    
+
     static Scanner scan = new Scanner(System.in);
     static Admin admin = new Admin();
     static Login login = new Login();
@@ -17,12 +17,9 @@ public class Tampilan {
 
         isLanjut = getYesorNo("Apakah Anda memiliki akun member ? ");
 
-        // while (isLanjut) {
-        // isLanjut = false;
-        // login.loginUser();
-        // }
         if (isLanjut) {
             login.loginUser();
+            
         } else {
             menuUser();
         }
@@ -42,12 +39,10 @@ public class Tampilan {
             case 2 -> user.showps3();
             case 3 -> user.showps4();
             case 4 -> user.showps5();
-            case 8 -> login.Regristrasi();
-            case 9 -> bayar();
+            case 6 -> login.Regristrasi();
+            case 7 -> bayar();
             // case 10 -> konsol.tambah(user.harga);
-
         }
-
     }
 
     public static void menuAdmin() throws IOException {
@@ -74,29 +69,8 @@ public class Tampilan {
         }
     }
 
-    public static void chose() {
-        System.out.print("Masukan pilihan : ");
-        userInput = scan.nextInt();
-        System.out.println("\n");
-
-    }
-
-    public static void formUser() throws IOException {
-
-        System.out.print("Masukan nama : ");
-        String nama = scan.next();
-        System.out.print("Masukan alamat :");
-        String alamat = scan.next();
-        System.out.print("Masukan no tlp :");
-        String notlp = scan.next();
-
-        // user.setdata(nama, alamat, notlp);
-        user.tulisData(nama, alamat, notlp);
-
-    }
-
     public static void bayar() throws IOException {
-        System.out.println("Total belanjaan anda : Rp." + user.printTotal() );
+        System.out.println("Total belanjaan anda : Rp." + user.printTotal());
         if (user.printTotal() != 0) {
             boolean isbayar = getYesorNo("Apakah ingin melanjutkan pembayaran ");
             if (isbayar) {
@@ -104,13 +78,32 @@ public class Tampilan {
                     formUser();
                 } else {
                     user.tulisData();
-
                 }
-
             }
         } else {
             System.out.println("Anda belum memesan apapun !");
         }
+
+    }
+
+    public static void formUser() throws IOException {
+
+        System.out.print("Masukan nama : ");
+        String nama = scan.nextLine();
+        System.out.print("Masukan alamat :");
+        String alamat = scan.nextLine();
+        System.out.print("Masukan no tlp :");
+        String notlp = scan.nextLine();
+
+        // user.setdata(nama, alamat, notlp);
+        user.tulisData(nama, alamat, notlp);
+
+    }
+
+    public static void chose() {
+        System.out.print("Masukan pilihan : ");
+        userInput = scan.nextInt();
+        System.out.println("\n");
 
     }
 
