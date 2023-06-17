@@ -1,13 +1,11 @@
 public class Ps5 extends Konsol {
 
-    int hari = 150000;
-    int minggu = 900000;
-    int bulan = 2700000;
+    private int hari = 150000;
+    private int minggu = 900000;
+    private int bulan = 2700000;
    
     public void display (){
-        System.out.println("==========================================");
-        System.out.println("           Rental PlayStation 2           ");
-        super.display(hari, minggu, bulan);
+        super.display(hari, minggu, bulan,5);
     }
     public int tampung(){
         int total = super.switchHarga(userInput, hari, minggu, bulan);

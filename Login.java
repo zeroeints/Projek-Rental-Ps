@@ -5,30 +5,34 @@ public class Login {
     Scanner scan = new Scanner(System.in);
     private boolean isLanjut = true;
     private boolean cek = false;
-    ArrayList<String> temp = new ArrayList<String>();
+   private ArrayList<String> temp = new ArrayList<String>();
    
-
-    public void Regristrasi() throws IOException {
-        System.out.println("=================================");
-        System.out.println("|           Regristrasi         |");
-        System.out.println("=================================");
-        System.out.print("| User name :");
-        String namaMember = scan.nextLine();
-        System.out.println("=================================");
-        System.out.print("| Password :");
-        String PasswordMember = scan.next();
-        scan.nextLine();
-        System.out.println("=================================");
-        System.out.print("| Alamat :");
-        String AlamatMember = scan.nextLine();
-        System.out.println("=================================");
-        System.out.print("| NO tlp :");
-        String TlpMember = scan.nextLine();
-        System.out.println("=================================");
-
-        tulis(PasswordMember, namaMember, AlamatMember, TlpMember);
-
-        System.out.println("Akun berhasil dibuat. Silakan login kembali.");
+   
+   public void Regristrasi() throws IOException {
+       if(Tampilan.getCek()){
+           System.out.println("=================================");
+               System.out.println("|           Regristrasi         |");
+               System.out.println("=================================");
+               System.out.print("| User name :");
+               String namaMember = scan.nextLine();
+               System.out.println("=================================");
+               System.out.print("| Password :");
+               String PasswordMember = scan.next();
+               scan.nextLine();
+               System.out.println("=================================");
+               System.out.print("| Alamat :");
+               String AlamatMember = scan.nextLine();
+               System.out.println("=================================");
+               System.out.print("| NO tlp :");
+               String TlpMember = scan.nextLine();
+               System.out.println("=================================");
+               
+               tulis(PasswordMember, namaMember, AlamatMember, TlpMember);
+               
+               System.out.println("Akun berhasil dibuat. Silakan login kembali.");
+    }else{
+        System.out.println("Anda telah memiliki akun silakan logout untuk membuat akun");
+        }
 
     }
 
@@ -50,56 +54,47 @@ public class Login {
     }
 
     private void cekUser(String NamaMember, String PasswordMember) throws IOException {
-        try {
-            BufferedReader memberbufer = new BufferedReader(
-                    new FileReader("C:\\Coding\\Java_Oop\\Rental PS barokah\\dataMember.txt"));
-            String cekID = memberbufer.readLine();
-            String pasword;
+        try (BufferedReader memberBuffer = new BufferedReader(new FileReader("C:\\Coding\\Java_Oop\\Rental PS barokah\\dataMember.txt"))) {
+            String cekID;
+            String password;
             String username;
             String role = "i";
-
-            while (cekID != null) {
+    
+            while ((cekID = memberBuffer.readLine()) != null) {
                 StringTokenizer stringToken = new StringTokenizer(cekID, "_");
-                pasword = stringToken.nextToken();
+                password = stringToken.nextToken();
                 username = stringToken.nextToken();
 
-                if (username.equals(NamaMember)) {
-                    if (pasword.equals(PasswordMember)) {
-                        role = stringToken.nextToken();
-                        this.temp.add(0, username);
-                        this.temp.add(1, stringToken.nextToken());
-                        this.temp.add(2, stringToken.nextToken());
-
-                        this.isLanjut = false;
-                        break;
-                    }
-                    System.out.println("pasword salah");
+                if (username.equals(NamaMember) && password.equals(PasswordMember)) {
+                    // System.out.println(PasswordMember);
+                    role = stringToken.nextToken();
+                    this.temp.add(0, username);
+                    this.temp.add(1, stringToken.nextToken());
+                    this.temp.add(2, stringToken.nextToken());
+                    
+                    this.cek = role.equals("admin");
+                    this.isLanjut = false;
+                    break;
                 }
-                cekID = memberbufer.readLine();
-
             }
-
-            if (role.equals("admin")) {
-                this.cek = true;
-            } else if (role.equals("member")) {
-                this.cek = false;
+            if (isLanjut){
+                System.out.println("password salah");
             }
-            memberbufer.close();
-
+    
         } catch (Exception e) {
-            System.out.println("eror" + e.getMessage());
-
+            System.out.println("error: " + e.getMessage());
         }
-
     }
-
+    
     private void tulis(String PasswordMember, String namaMember, String AlamatMember, String TlpMember) throws IOException {
-        BufferedWriter memberWriter = new BufferedWriter(new FileWriter("dataMember.txt", true));
-
-        memberWriter.write(PasswordMember + "_" + namaMember + "_member_" + AlamatMember + "_" + TlpMember);
-        memberWriter.newLine();
-        memberWriter.close();
+        try (BufferedWriter memberWriter = new BufferedWriter(new FileWriter("dataMember.txt", true))) {
+            memberWriter.write(PasswordMember + "_" + namaMember + "_member_" + AlamatMember + "_" + TlpMember);
+            memberWriter.newLine();
+        } catch (Exception e) {
+            System.out.println("error: " + e.getMessage());
+        }
     }
+    
 
     public boolean retUrn() {
         return this.cek;

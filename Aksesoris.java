@@ -1,4 +1,14 @@
 public class Aksesoris {
+    int controler2 = 25000;
+    int controler3 = 50000;
+    int controler4 = 50000;
+    int controler5 = 75000;
+    int vr = 250_000;
+    int gameFifa = 25_000;
+    int gameGta5 = 50_000;
+
+
+
 
     public void display (){
         System.out.println("DUALSHOCK 2 Controller: Rp. 25.000/hari");
