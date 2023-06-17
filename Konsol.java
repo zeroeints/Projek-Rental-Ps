@@ -16,7 +16,7 @@ public abstract class Konsol {
         System.out.println("==========================================");
     }
 
-    public int switchHarga(int inputUser, int hari, int minggu, int bulan) {
+    public int tampung(int inputUser, int hari, int minggu, int bulan) {
         switch (inputUser) {
             case 1 -> temp = hari;                                                                                                                                                                                                                                                                                                          
             case 2 -> temp = minggu;

@@ -37,7 +37,9 @@ public class Admin extends User {
             case 4:
                 hapusData();
                 break;
-
+            default:
+                System.out.println("Pilihan tidak tersedia");
+                break;
         }
     }
 
@@ -124,7 +126,7 @@ public class Admin extends User {
                 "===================================================================================================================================");
         System.out.println(
                 "| No |         Nama         |      Alamat      |   NoTlp   |                     Total Ps                       |      Total      |");
-       System.out.println(
+        System.out.println(
                 "===================================================================================================================================");
         String data = bufferInput.readLine();
         int nomorData = 0;

@@ -14,26 +14,26 @@ public class User {
     private int[] ArayTotal = { 0, 0, 0, 0, 0, 0, 0, 0 };
     private StringBuilder temp = new StringBuilder();
 
-    private LocalDate lamaPeminjaman(int hari){
+    private LocalDate lamaPeminjaman(int hari) {
         LocalDate awal = LocalDate.now();
-        LocalDate akhir =awal.plusDays(hari);
+        LocalDate akhir = awal.plusDays(hari);
         return akhir;
     }
 
-    private void cekPembelian (){
-        if(ArayTotal[0] !=0){
-            temp.append("Ps2 "+ArayTotal[1]+" Hari,Sampai "+lamaPeminjaman(ArayTotal[1]));
+    private void cekPembelian() {
+        if (ArayTotal[0] != 0) {
+            temp.append("Ps2 " + ArayTotal[1] + " Hari,Sampai " + lamaPeminjaman(ArayTotal[1]));
         }
-        if(ArayTotal[2] !=0){
-            temp.append("Ps3 "+ArayTotal[3]+" Hari,Sampai "+lamaPeminjaman(ArayTotal[3]));
+        if (ArayTotal[2] != 0) {
+            temp.append("Ps3 " + ArayTotal[3] + " Hari,Sampai " + lamaPeminjaman(ArayTotal[3]));
         }
-        if(ArayTotal[4] !=0){
-            temp.append("Ps4 "+ArayTotal[5]+" Hari,Sampai "+lamaPeminjaman(ArayTotal[5]));
+        if (ArayTotal[4] != 0) {
+            temp.append("Ps4 " + ArayTotal[5] + " Hari,Sampai " + lamaPeminjaman(ArayTotal[5]));
         }
-        if(ArayTotal[6] !=0){
-            temp.append("Ps5 "+ArayTotal[7]+" Hari,Sampai "+lamaPeminjaman(ArayTotal[7]));
+        if (ArayTotal[6] != 0) {
+            temp.append("Ps5 " + ArayTotal[7] + " Hari,Sampai " + lamaPeminjaman(ArayTotal[7]));
         }
-        
+
     }
 
     public static void display() {
@@ -84,9 +84,8 @@ public class User {
         cekPembelian();
         BufferedWriter memberWriter = new BufferedWriter(new FileWriter("Data.txt", true));
 
-
         memberWriter.write(
-                nama + "_" + alamat + "_" + notlp +"_"+temp.toString()+"_" +"Rp." + printTotal());
+                nama + "_" + alamat + "_" + notlp + "_" + temp.toString() + "_" + "Rp." + printTotal());
         memberWriter.newLine();
         memberWriter.close();
         System.out.println("Terimakasih telah menyewa di tempat kami)");
@@ -97,7 +96,8 @@ public class User {
         cekPembelian();
         BufferedWriter memberWriter = new BufferedWriter(new FileWriter("Data.txt", true));
 
-        memberWriter.write(Tampilan.login.gettemp(0) + "_" + Tampilan.login.gettemp(1) + "_" + Tampilan.login.gettemp(2)+"_"+temp.toString()+"_"+
+        memberWriter.write(Tampilan.login.gettemp(0) + "_" + Tampilan.login.gettemp(1) + "_" + Tampilan.login.gettemp(2)
+                + "_" + temp.toString() + "_" +
                 "Rp." + printTotal());
         memberWriter.newLine();
         memberWriter.close();
@@ -175,9 +175,9 @@ public class User {
     }
 
     private void clearTotal() {
-       for(int i=0;i<=7;i++){
-        ArayTotal[i]=0;
-       }
+        for (int i = 0; i <= 7; i++) {
+            ArayTotal[i] = 0;
+        }
     }
 
     private boolean Cekstok(int id) {
@@ -191,5 +191,5 @@ public class User {
         return cek;
 
     }
-   
+
 }
