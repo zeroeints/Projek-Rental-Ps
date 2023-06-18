@@ -11,6 +11,10 @@ public abstract class Tampilan {
     private static int userInput;
     private static boolean isLanjut = false;
 
+    Tampilan(){
+        
+    }
+
     public static void main(String[] args) throws IOException {
         clearScreen();
 
