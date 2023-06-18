@@ -1,4 +1,4 @@
-public class Aksesoris {
+public class Aksesoris extends Konsol {
     int controler2 = 25000;
     int controler3 = 50000;
     int controler4 = 50000;
@@ -15,6 +15,8 @@ public class Aksesoris {
         System.out.println("VR Headset: Rp. 250.000/hari");
         System.out.println("Game FIFA 23: Rp. 25.000/hari");
         System.out.println("Game Grand Theft Auto V: Rp. 50.000/hari");
+        choose();
     }
+   
 
 }

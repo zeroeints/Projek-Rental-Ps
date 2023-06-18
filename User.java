@@ -1,6 +1,7 @@
 import java.io.*;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.ArrayList;
 
 public class User {
     Ps2 ps2 = new Ps2();
@@ -45,9 +46,8 @@ public class User {
         System.out.println("| 2. | Rental PlayStation 3   |");
         System.out.println("| 3. | Rental PlayStation 4   |");
         System.out.println("| 4. | Rental PlayStation 5   |");
-        System.out.println("| 5. | Tambahan Aksesoris     |");
-        System.out.println("| 6. | Registrasi             |");
-        System.out.println("| 7. |         BAYAR          |");
+        System.out.println("| 5. | Registrasi             |");
+        System.out.println("| 6. |         BAYAR          |");
         System.out.println("===============================");
     }
 
@@ -169,6 +169,7 @@ public class User {
             case 1 -> hari = 1;
             case 2 -> hari = 7;
             case 3 -> hari = 30;
+            default -> System.out.println("pilihan anda tidak tersedia");
         }
         return hari;
 

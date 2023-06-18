@@ -1,8 +1,8 @@
 public class Ps3 extends Konsol {
 
-    private int hari = 75000;
-    private int minggu = 450000;
-    private int bulan = 1350000;
+    private final int hari = 75000;
+    private final int minggu = 450000;
+    private final int bulan = 1350000;
 
     public void display() {
         super.display(hari, minggu, bulan, 3);

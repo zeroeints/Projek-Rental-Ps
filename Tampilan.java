@@ -52,16 +52,16 @@ public abstract class Tampilan {
                 clearScreen();
                 user.showps5();
                 break;
-            case 6:
+            case 5:
                 clearScreen();
                 login.Regristrasi();
                 break;
-            case 7:
+            case 6:
                 clearScreen();
                 bayar();
                 break;
             default:
-                System.out.println("pilihan anda tidak ada");
+                System.out.println("pilihan anda tidak tersedia");
                 break;
         }
     }
