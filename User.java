@@ -14,6 +14,10 @@ public class User {
     private int[] stok = { 10, 10, 10, 10 };
     private int[] ArayTotal = { 0, 0, 0, 0, 0, 0, 0, 0 };
     private StringBuilder temp = new StringBuilder();
+    
+    User(){
+
+    }
 
     private LocalDate lamaPeminjaman(int hari) {
         LocalDate awal = LocalDate.now();
