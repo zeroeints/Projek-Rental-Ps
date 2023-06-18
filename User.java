@@ -73,8 +73,11 @@ public class User {
     public int printTotal() {
         int tempTotal = 0;
 
-        for (int total : ArayTotal) {
-            tempTotal += total;
+        for (int i=0 ;i<=7;i++) {
+            if(i%2==0){
+
+                tempTotal += ArayTotal[i];
+            }
         }
 
         return tempTotal;

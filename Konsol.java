@@ -16,7 +16,7 @@ public abstract class Konsol {
         System.out.println("==========================================");
     }
 
-    public int tampung(int inputUser, int hari, int minggu, int bulan) {
+    protected int tampung(int inputUser, int hari, int minggu, int bulan) {
         switch (inputUser) {
             case 1 -> temp = hari;                                                                                                                                                                                                                                                                                                          
             case 2 -> temp = minggu;
@@ -31,6 +31,5 @@ public abstract class Konsol {
         int userInput = scan.nextInt();
         return userInput;
     }
-    
-
+   
 }

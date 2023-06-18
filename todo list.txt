@@ -2,15 +2,17 @@ todo list
 1.membuat menu interface (done)
 2.terdapat kelas utama yaitu konsol (sudah)
 3.terdapt 5 sub class ps (sudah)
-4.terdpat perhitungan total(progres)
+4.terdpat perhitungan total(sudah)
 5.harga perjam(done)
 6.terdapat menu fariasi yaitu
 	1.menambah stik
-	2.pilihan pengambilan konsol cod/ditempat
+	2.pilihan pengambilan konsol cod/ditempat(tidak jadi waktu tidak cukup)
 7.login (sudah)
 8.role user admin dan member (sudah)
 9,tampilan admin (sudah)
-10.crud admin
+10.crud admin(sudah)
+11.stok ps (sudah tapi pengembalian belum)
+12.menerapkan oop ()
 
 
 
