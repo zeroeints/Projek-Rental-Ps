@@ -5,6 +5,7 @@ public class Login {
     Scanner scan = new Scanner(System.in);
     private boolean isLanjut = true;
     private boolean cek = false;
+    private boolean cekMember = true;
     private ArrayList<String> temp = new ArrayList<String>();
 
     public void Regristrasi() throws IOException {
@@ -25,10 +26,14 @@ public class Login {
             System.out.print("| NO tlp :");
             String TlpMember = scan.nextLine();
             System.out.println("=================================");
+            cekMember(PasswordMember, namaMember);
+            if (cekMember) {
+                tulis(PasswordMember, namaMember, AlamatMember, TlpMember);
 
-            tulis(PasswordMember, namaMember, AlamatMember, TlpMember);
-
-            System.out.println("Akun berhasil dibuat. Silakan login kembali.");
+                System.out.println("Akun berhasil dibuat. Silakan login kembali.");
+            } else {
+                System.out.println("akun yang anda buat saudah ada");
+            }
         } else {
             System.out.println("Anda telah memiliki akun silakan logout untuk membuat akun");
         }
@@ -104,6 +109,30 @@ public class Login {
         String coba = temp.get(no);
 
         return coba;
+
+    }
+
+    private void cekMember(String pass, String User) throws IOException {
+        try (BufferedReader memberBuffer = new BufferedReader(
+                new FileReader("C:\\Coding\\Java_Oop\\Rental PS barokah\\dataMember.txt"))) {
+
+            String cekId;
+            String password;
+            String username;
+            while ((cekId = memberBuffer.readLine()) != null) {
+                StringTokenizer stringToken = new StringTokenizer(cekId, "_");
+                password = stringToken.nextToken();
+                username = stringToken.nextToken();
+                if (username.equals(User) && password.equals(pass)) {
+                    cekMember = false;
+                }
+                stringToken.nextToken();
+                stringToken.nextToken();
+                stringToken.nextToken();
+            }
+        } catch (Exception e) {
+            System.out.println("error: " + e.getMessage());
+        }
 
     }
 }
