@@ -1,5 +1,4 @@
 import java.io.IOException;
-
 public class Ps2 extends Konsol {
 
     private final int hari = 50000;
@@ -8,7 +7,6 @@ public class Ps2 extends Konsol {
     // private int stok = 3;
 
     public void display() throws IOException {
-
         super.display(hari, minggu, bulan, 2);
     }
 

@@ -1,8 +1,9 @@
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.InputStreamReader;
 
-public abstract class Tampilan {
-    static Scanner scan = new Scanner(System.in);
+
+public abstract class Tampilan  {
     static Admin admin = new Admin();
     static Login login = new Login();
     static User user = new User();
@@ -10,9 +11,10 @@ public abstract class Tampilan {
     private static boolean cek = true;
     private static int userInput;
     private static boolean isLanjut = false;
+    private static BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
 
-    Tampilan(){
-        
+    Tampilan() {
+
     }
 
     public static void main(String[] args) throws IOException {
@@ -75,6 +77,7 @@ public abstract class Tampilan {
 
         while (menuAdmin) {
             Admin.display();
+            System.out.println("Masukan pilihan: ");
             admin.pilihanUser(admin.chose());
 
             menuAdmin = getYesorNo("Apakah Anda ingin kembali ke menu utama?");
@@ -106,7 +109,10 @@ public abstract class Tampilan {
                 } else {
                     user.tulisData();
                 }
+            } else {
+                user.clearTotal();
             }
+
         } else {
             System.out.println("Anda belum memesan apapun!");
         }
@@ -114,20 +120,27 @@ public abstract class Tampilan {
 
     public static void formUser() throws IOException {
         System.out.print("Masukkan nama: ");
-        String nama = scan.nextLine();
+        String nama = read.readLine();
         System.out.print("Masukkan alamat: ");
-        String alamat = scan.nextLine();
+        String alamat = read.readLine();
         System.out.print("Masukkan nomor telepon: ");
-        String notlp = scan.nextLine();
-
-        // user.setdata(nama, alamat, notlp);
+        String notlp = read.readLine();
         user.tulisData(nama, alamat, notlp);
     }
 
-    public static void chose() {
-        System.out.print("Masukkan pilihan: ");
-        userInput = scan.nextInt();
-        System.out.println();
+     public static int chose()throws IOException {
+        // int userInput;
+        while (true) {
+            System.out.print("Masukkan pilihan: ");
+            try {
+                userInput = Integer.parseInt(read.readLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Input tidak valid. Masukkan angka.");
+            }
+
+        }
+        return userInput;
     }
 
     public static void clearScreen() {
@@ -145,14 +158,14 @@ public abstract class Tampilan {
 
     public static boolean getYesorNo(String message) throws IOException {
         System.out.print("\n" + message + " (y/n)? ");
-        String pilihanUser = scan.next();
-        scan.nextLine();
+        String pilihanUser = read.readLine();
+        // scan.nextLine();
 
         while (!pilihanUser.equalsIgnoreCase("y") && !pilihanUser.equalsIgnoreCase("n")) {
             System.err.println("Pilihan Anda bukan y atau n");
             System.out.print("\n" + message + " (y/n)? ");
-            pilihanUser = scan.next();
-            scan.nextLine();
+            pilihanUser = read.readLine();
+            // scan.nextLine();
         }
 
         return pilihanUser.equalsIgnoreCase("y");

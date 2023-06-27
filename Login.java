@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Login {
-    Scanner scan = new Scanner(System.in);
+public class Login extends User {
     private boolean isLanjut = true;
     private boolean cek = false;
     private boolean cekMember = true;
@@ -14,26 +13,31 @@ public class Login {
             System.out.println("|           Regristrasi         |");
             System.out.println("=================================");
             System.out.print("| User name :");
-            String namaMember = scan.nextLine();
+            String namaMember = read.readLine();
             System.out.println("=================================");
             System.out.print("| Password :");
-            String PasswordMember = scan.next();
-            scan.nextLine();
+            String PasswordMember = read.readLine();
             System.out.println("=================================");
             System.out.print("| Alamat :");
-            String AlamatMember = scan.nextLine();
+            String AlamatMember = read.readLine();
             System.out.println("=================================");
             System.out.print("| NO tlp :");
-            String TlpMember = scan.nextLine();
+            String TlpMember = read.readLine();
             System.out.println("=================================");
-            cekMember(PasswordMember, namaMember);
-            if (cekMember) {
-                tulis(PasswordMember, namaMember, AlamatMember, TlpMember);
+            if (cekString(namaMember, PasswordMember, TlpMember, AlamatMember)) {
 
-                System.out.println("Akun berhasil dibuat. Silakan login kembali.");
-            } else {
-                System.out.println("akun yang anda buat saudah ada");
+                cekMember(PasswordMember, namaMember);
+                if (cekMember) {
+                    tulis(PasswordMember, namaMember, AlamatMember, TlpMember);
+
+                    System.out.println("Akun berhasil dibuat. Silakan login kembali.");
+                } else {
+                    System.out.println("akun yang anda buat saudah ada");
+                }
+            }else{
+                System.out.println("Kata tidak boleh mengandung _");
             }
+
         } else {
             System.out.println("Anda telah memiliki akun silakan logout untuk membuat akun");
         }
@@ -47,11 +51,10 @@ public class Login {
             System.out.println("|             login             |");
             System.out.println("=================================");
             System.out.print("| Nama Member : ");
-            String NamaMember = scan.nextLine();
+            String NamaMember = read.readLine();
             System.out.println("=================================");
             System.out.print("| Password : ");
-            String PasswordMember = scan.next();
-            scan.nextLine();
+            String PasswordMember = read.readLine();
             System.out.println("=================================");
             cekUser(NamaMember, PasswordMember);
         }
@@ -110,6 +113,10 @@ public class Login {
 
         return coba;
 
+    }
+
+    private boolean cekString(String nama, String password, String no, String alamat) {
+        return !nama.contains("_") && !password.contains("_") && !no.contains("_") && !alamat.contains("_");
     }
 
     private void cekMember(String pass, String User) throws IOException {

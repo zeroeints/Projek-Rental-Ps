@@ -2,20 +2,19 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.*;
 
-
 public class User {
     Ps2 ps2 = new Ps2();
     Ps3 ps3 = new Ps3();
     Ps4 ps4 = new Ps4();
     Ps5 ps5 = new Ps5();
-    Scanner scan = new Scanner(System.in);
+    public static BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
     private ArrayList<String> data = new ArrayList<>();
     private boolean isExist = true;
     private int[] stok = { 10, 10, 10, 10 };
     private int[] ArayTotal = { 0, 0, 0, 0, 0, 0, 0, 0 };
     private StringBuilder temp = new StringBuilder();
-    
-    User(){
+
+    User() {
 
     }
 
@@ -57,13 +56,13 @@ public class User {
 
     public boolean getYesOrNo(String message) throws IOException {
         System.out.print("\n" + message + " (y/n)? ");
-        String pilihanUser = scan.next();
-        scan.nextLine();
+        String pilihanUser = read.readLine();
+        
         while (!pilihanUser.equalsIgnoreCase("y") && !pilihanUser.equalsIgnoreCase("n")) {
             System.err.println("Pilihan anda bukan y atau n");
             System.out.print("\n" + message + " (y/n)? ");
-            pilihanUser = scan.next();
-            scan.nextLine();
+            pilihanUser = read.readLine();
+            
         }
         return pilihanUser.equalsIgnoreCase("y");
     }
@@ -77,8 +76,8 @@ public class User {
     public int printTotal() {
         int tempTotal = 0;
 
-        for (int i=0 ;i<=7;i++) {
-            if(i%2==0){
+        for (int i = 0; i <= 7; i++) {
+            if (i % 2 == 0) {
 
                 tempTotal += ArayTotal[i];
             }
@@ -182,7 +181,7 @@ public class User {
 
     }
 
-    private void clearTotal() {
+    public void clearTotal() {
         for (int i = 0; i <= 7; i++) {
             ArayTotal[i] = 0;
         }

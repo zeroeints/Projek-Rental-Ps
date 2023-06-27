@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Admin extends User {
-    Scanner scan = new Scanner(System.in);
+    
 
     public static void display() {
         System.out.println("        RENTAL PS BAROKAH      ");
@@ -16,10 +16,18 @@ public class Admin extends User {
         System.out.println("===============================");
     }
 
-    public int chose() {
+    public int chose()throws IOException {
         int userInput;
-        System.out.print("Masukkan pilihan: ");
-        userInput = scan.nextInt();
+        while (true) {
+            
+            try {
+                userInput = Integer.parseInt(read.readLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Input tidak valid. Masukkan angka.");
+            }
+
+        }
         return userInput;
     }
 
@@ -51,13 +59,11 @@ public class Admin extends User {
         tampilkanData();
 
         System.out.print("Masukkan nomor baris yang ingin diubah: ");
-        int nomorBaris = scan.nextInt();
-
-        scan.nextLine();
+        int nomorBaris = chose();
         System.out.print("Masukkan kata yang ingin diubah: ");
-        String kata = scan.nextLine();
+        String kata = read.readLine();
         System.out.print("\nMasukkan kata baru: ");
-        String kataBaru = scan.nextLine();
+        String kataBaru = read.readLine();
 
         while (line != null) {
             if (currentLineNumber == nomorBaris) {
@@ -80,7 +86,7 @@ public class Admin extends User {
         tampilkanData();
         System.out.println("");
         System.out.print("Masukkan nomor data yang ingin dihapus: ");
-        int number = scan.nextInt();
+        int number = chose();
 
         BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));
         String dataLama = "";
