@@ -20,7 +20,7 @@ public abstract class Tampilan  {
     public static void main(String[] args) throws IOException {
         clearScreen();
 
-        isLanjut = getYesorNo("Apakah Anda memiliki akun member?");
+        isLanjut = user.getYesOrNo("Apakah Anda memiliki akun member?");
 
         if (isLanjut) {
             clearScreen();
@@ -80,7 +80,7 @@ public abstract class Tampilan  {
             System.out.println("Masukan pilihan: ");
             admin.pilihanUser(admin.chose());
 
-            menuAdmin = getYesorNo("Apakah Anda ingin kembali ke menu utama?");
+            menuAdmin = user.getYesOrNo("Apakah Anda ingin kembali ke menu utama?");
         }
     }
 
@@ -93,7 +93,7 @@ public abstract class Tampilan  {
             chose();
             pilihanUser(userInput);
 
-            menuUser = getYesorNo("Apakah Anda ingin kembali ke menu utama?");
+            menuUser = user.getYesOrNo("Apakah Anda ingin kembali ke menu utama?");
         }
     }
 
@@ -101,7 +101,7 @@ public abstract class Tampilan  {
         System.out.println("Total belanjaan Anda: Rp." + user.printTotal());
 
         if (user.printTotal() != 0) {
-            boolean isbayar = getYesorNo("Apakah ingin melanjutkan pembayaran?");
+            boolean isbayar = user.getYesOrNo("Apakah ingin melanjutkan pembayaran?");
 
             if (isbayar) {
                 if (cek) {
@@ -154,21 +154,6 @@ public abstract class Tampilan  {
         } catch (Exception ex) {
             System.err.println("Tidak dapat membersihkan layar.");
         }
-    }
-
-    public static boolean getYesorNo(String message) throws IOException {
-        System.out.print("\n" + message + " (y/n)? ");
-        String pilihanUser = read.readLine();
-        // scan.nextLine();
-
-        while (!pilihanUser.equalsIgnoreCase("y") && !pilihanUser.equalsIgnoreCase("n")) {
-            System.err.println("Pilihan Anda bukan y atau n");
-            System.out.print("\n" + message + " (y/n)? ");
-            pilihanUser = read.readLine();
-            // scan.nextLine();
-        }
-
-        return pilihanUser.equalsIgnoreCase("y");
     }
 
     public static Boolean getCek() {
