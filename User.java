@@ -2,11 +2,12 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.*;
 
-public class User {
-    Ps2 ps2 = new Ps2();
-    Ps3 ps3 = new Ps3();
-    Ps4 ps4 = new Ps4();
-    Ps5 ps5 = new Ps5();
+public class User{
+    Ps ps2 = new Ps(50000,300000, 900000,2);
+    Ps ps3 = new Ps(75000,450000,1350000,3);
+    Ps ps4 = new Ps(100000,600000,1800000,4);
+    Ps ps5 = new Ps(150000,900000,2700000,5);
+    
     public static BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
     private ArrayList<String> data = new ArrayList<>();
     private boolean isExist = true;
@@ -85,6 +86,8 @@ public class User {
 
         return tempTotal;
     }
+
+    //Overloading 
 
     public void tulisData(String nama, String alamat, String notlp) throws IOException {
         cekPembelian();

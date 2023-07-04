@@ -2,8 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class Admin extends User {
-    
 
+    // Override
     public static void display() {
         System.out.println("        RENTAL PS BAROKAH      ");
         System.out.println("===============================");
@@ -16,10 +16,10 @@ public class Admin extends User {
         System.out.println("===============================");
     }
 
-    public int chose()throws IOException {
+    public int chose() throws IOException {
         int userInput;
         while (true) {
-            
+
             try {
                 userInput = Integer.parseInt(read.readLine());
                 break;

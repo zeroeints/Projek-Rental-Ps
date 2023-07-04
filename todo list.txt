@@ -11,8 +11,8 @@ todo list
 8.role user admin dan member (sudah)
 9,tampilan admin (sudah)
 10.crud admin(sudah)
-11.stok ps (sudah tapi pengembalian belum)
-12.menerapkan oop ()
+11.stok ps (sudah )
+12.menerapkan oop (sudah)
 
 
 

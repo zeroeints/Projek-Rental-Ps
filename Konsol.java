@@ -30,6 +30,5 @@ public abstract class Konsol {
         System.out.print("Masukan pilihan : ");
         int userInput = scan.nextInt();
         return userInput;
-    }
-   
+    }  
 }
